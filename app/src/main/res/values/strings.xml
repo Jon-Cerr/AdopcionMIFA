@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AdopcionMIFA</string>
+    <string-array name="Mascota">
+        <item>Elige</item>
+        <item>PERROS</item>
+        <item>GATOS</item>
+    </string-array>
+    <string-array name="Perros">
+        <item>Bulldog</item>
+        <item>Basenji</item>
+        <item>Husky</item>
+    </string-array>
+    <string-array name="Gatos">
+        <item>Bombay</item>
+        <item>Kinkalow</item>
+        <item>Lykoi</item>
+    </string-array>
+</resources>
