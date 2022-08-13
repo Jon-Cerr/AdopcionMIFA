@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/alanc/AndroidStudioProjects/AdopcionMIFA/app/src/main/res/layout/activity_adoptante.xml" value="0.33" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/AdopcionMIFA/app/src/main/res/layout/activity_certificado.xml" value="0.25" />
         <entry key="..\:/Users/alanc/AndroidStudioProjects/AdopcionMIFA/app/src/main/res/layout/activity_main.xml" value="0.203125" />
         <entry key="..\:/Users/alanc/AndroidStudioProjects/AdopcionMIFA/app/src/main/res/layout/activity_mascotas.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/AdopcionMIFA/app/src/main/res/layout/activity_reg_alu.xml" value="0.1671654553227875" />
         <entry key="..\:/Users/alanc/AndroidStudioProjects/AdopcionMIFA/app/src/main/res/layout/inflate_programacion.xml" value="0.25" />
+        <entry key="..\:/Users/alanc/AndroidStudioProjects/AdopcionMIFA/app/src/main/res/menu/menu.xml" value="0.5" />
       </map>
     </option>
   </component>

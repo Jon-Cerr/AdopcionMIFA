@@ -27,9 +27,12 @@ public class Mascotas extends AppCompatActivity {
     private ImageView imgvMas;
     private TextView txtmDat;
     private RadioGroup rdgbSex;
+    private ImageButton imgbIrAdoptar;
     private RadioButton rdbHem, rdbMac;
     private EditText txteFe;
     Mascota mascotas = new Mascota();
+    public static String sexo;
+    public static String fecha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,8 @@ public class Mascotas extends AppCompatActivity {
         rdbHem= findViewById(R.id.rdbHem);
         rdbMac= findViewById(R.id.rdbMac);
         txteFe= findViewById(R.id.txteFe);
+        imgbIrAdoptar= findViewById(R.id.imgbIrAdoptar);
+
         txtmDat.setKeyListener(null);
         regMas();
     }
@@ -145,7 +150,6 @@ public class Mascotas extends AppCompatActivity {
                 }
             }
         });
-
     }
     public void datosMas(String raza, String color, String edad, String sexo, String caracter){
         txtmDat.setText("Raza: " + raza + "\n\n"+ "Color: " + color + "\n\n"+ "Edad: " + edad + "\n\n" + "Sexo: " + sexo + "\n\n" + "Caracter: " + caracter);
@@ -157,35 +161,20 @@ public class Mascotas extends AppCompatActivity {
         String sexo = "";
         String caracter = "";
     }
-    /*public void irAdoptar(View view){
-        AdoptarPaso();
-    }*/
     public void AdoptarPaso(View v){
-        rdgbSex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                String sexo;
-                String fecha;
-                Intent envioDatos;
-                switch(i){
-                    case R.id.rdbHem:
-                        sexo = "Hembra";
-                        fecha = txteFe.getText().toString().trim();
-
-                        break;
-                    case R.id.rdbMac:
-                        sexo = "Macho";
-                        fecha = txteFe.getText().toString().trim();
-
-                        break;
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + i);
-                }
-                envioDatos = new Intent(Mascotas.this, Adoptante.class);
-                envioDatos.putExtra("Sexo", sexo);
-                envioDatos.putExtra("Fecha", fecha);
-                startActivity(envioDatos);
-            }
-        });
+        fecha = txteFe.getText().toString().trim();
+        if(rdbHem.isChecked()){
+            Intent enviarDatos = new Intent(Mascotas.this, Adoptante.class);
+            enviarDatos.putExtra("Sexo", "Hembra");
+            enviarDatos.putExtra("Fecha", fecha);
+            enviarDatos.putExtra("Raza", mascotas.raza);
+            startActivity(enviarDatos);
+        }else if(rdbMac.isChecked()){
+            Intent enviarDatos = new Intent(Mascotas.this, Adoptante.class);
+            enviarDatos.putExtra("Sexo", "Macho");
+            enviarDatos.putExtra("Fecha", fecha);
+            enviarDatos.putExtra("Raza", mascotas.raza);
+            startActivity(enviarDatos);
+        }
     }
 }

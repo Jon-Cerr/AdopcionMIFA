@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".RegAlu">
+
+    <item android:title="Registrar"
+        android:id="@+id/registrar"
+        android:icon="@drawable/btnregin"
+        app:showAsAction="always"/>
+
+    <item android:title="Buscar"
+        android:id="@+id/buscar"
+        android:icon="@drawable/btnbus"
+        app:showAsAction="always"/>
+
+    <item android:title="Actualizar"
+        android:id="@+id/actualizar"
+        android:icon="@drawable/btnact"
+        app:showAsAction="always"/>
+
+    <item android:title="Eliminar"
+        android:id="@+id/eliminar"
+        android:icon="@drawable/btneli"
+        app:showAsAction="always"/>
+
+    <item android:title="Salir"
+        android:id="@+id/salir"
+        android:icon="@drawable/btnsal"
+        app:showAsAction="always"/>
+
+</menu>

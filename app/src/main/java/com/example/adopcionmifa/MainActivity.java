@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button btnIrRegis;
     private ImageButton imgbAdop;
     private ImageView imgvAni;
     @Override
@@ -34,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
         animarAdop.addFrame(getResources().getDrawable(R.drawable.ani05), duracion);
         imgvAni.setBackground(animarAdop);
         animarAdop.start();
+        btnIrRegis = findViewById(R.id.btnIrRegis);
+        btnIrRegis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RegAlu.class));
+            }
+        });
     }
 
     private void irAdop() {
