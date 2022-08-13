@@ -69,17 +69,17 @@ public class Mascotas extends AppCompatActivity {
                     case 0:
                         imgvMas.setImageResource(R.drawable.lstpbul);
                         String carac = String.valueOf(i);
-                        datosMas("Perro", "Negro", "1 año", "Masculino", carac);
+                        datosMas("Bulldog", "Negro", "2 meses", "Masculino", "Travieso");
                         break;
                     case 1:
                         imgvMas.setImageResource(R.drawable.lstpbas);
                         carac = String.valueOf(i);
-                        datosMas("Perro", "Negro", "1 año", "Masculino", carac);
+                        datosMas("Basenji", "Blanco con negro", "6 meses", "Masculino", "Jugueton");
                         break;
                     case 2:
                         imgvMas.setImageResource(R.drawable.lstphus);
                         carac = String.valueOf(i);
-                        datosMas("Perro", "Negro", "1 año", "Masculino", carac);
+                        datosMas("Husky", "Cafe con blanco", "4 meses", "Hmebra", "Jugueton/exagerada");
                         break;
                 }
             }
@@ -95,20 +95,22 @@ public class Mascotas extends AppCompatActivity {
                 switch(i){
                     case 0:
                         imgvMas.setImageResource(R.drawable.lstgbom);
+                        datosMas("Bombay", "Negro", "6 meses", "Hembra", "Amigable");
                         break;
                     case 1:
                         imgvMas.setImageResource(R.drawable.lstgkin);
+                        datosMas("Kinkalow", "Blanco con gris", "8 meses", "Macho", "Jugueton");
                         break;
                     case 2:
                         imgvMas.setImageResource(R.drawable.lstglyk);
+                        datosMas("Lykoi", "Cafe/gris", "1 año", "Masculino", "Reservado");
                         break;
                 }
             }
         });
-        datosMas("Gato", "Cafe", "2 años", "Masculino", "Jugueton");
     }
     public void datosMas(String raza, String color, String edad, String sexo, String caracter){
-        txtmDat.setText(raza + "\n"+ color + "\n"+ edad + "\n"+ sexo + "\n"+ caracter);
+        txtmDat.setText(raza + "\n\n"+ color + "\n\n"+ edad + "\n\n"+ sexo + "\n\n"+ caracter);
     }
    public void radioButton(){
         sexoMascota.sexo = ((String.valueOf(rdgbSex.getCheckedRadioButtonId())));
