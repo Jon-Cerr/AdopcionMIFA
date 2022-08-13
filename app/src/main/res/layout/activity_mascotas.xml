@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fmascotas"
     tools:context=".Mascotas">
 
     <LinearLayout
@@ -46,7 +47,7 @@
             </LinearLayout>
 
             <Space
-                android:layout_width="95dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content" />
 
             <ImageView
@@ -123,7 +124,7 @@
                     android:layout_height="50dp" />
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/imgbIrAdoptar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"

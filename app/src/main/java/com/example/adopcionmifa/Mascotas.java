@@ -2,16 +2,20 @@ package com.example.adopcionmifa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.lang.reflect.Array;
 
 public class Mascotas extends AppCompatActivity {
 
@@ -21,6 +25,7 @@ public class Mascotas extends AppCompatActivity {
     private TextView txtmDat;
     private RadioGroup rdgbSex;
     private RadioButton rdbHem, rdbMac;
+    private ImageButton imgbIrAdoptar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,7 @@ public class Mascotas extends AppCompatActivity {
         rdbHem= findViewById(R.id.rdbHem);
         rdbMac= findViewById(R.id.rdbMac);
         txtmDat.setKeyListener(null);
+        imgbIrAdoptar = findViewById(R.id.imgbIrAdoptar);
         regMas();
     }
     public void regMas(){
@@ -65,21 +71,34 @@ public class Mascotas extends AppCompatActivity {
         lstPeGa.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Mascota mascotasPerros = new Mascota();
                 switch(i){
                     case 0:
                         imgvMas.setImageResource(R.drawable.lstpbul);
-                        String carac = String.valueOf(i);
-                        datosMas("Bulldog", "Negro", "2 meses", "Masculino", "Travieso");
+                        datosMas(
+                                mascotasPerros.raza = "Bulldog",
+                                mascotasPerros.color = "Blanco",
+                                mascotasPerros.edad = "2 años",
+                                mascotasPerros.sexo = "Masculino",
+                                mascotasPerros.caracter = "Jugueton");
                         break;
                     case 1:
                         imgvMas.setImageResource(R.drawable.lstpbas);
-                        carac = String.valueOf(i);
-                        datosMas("Basenji", "Blanco con negro", "6 meses", "Masculino", "Jugueton");
+                        datosMas(
+                                mascotasPerros.raza = "Basenji",
+                                mascotasPerros.color = "Negro con blanco",
+                                mascotasPerros.edad = "1 año",
+                                mascotasPerros.sexo = "Hembra",
+                                mascotasPerros.caracter = "Juguetona");
                         break;
                     case 2:
                         imgvMas.setImageResource(R.drawable.lstphus);
-                        carac = String.valueOf(i);
-                        datosMas("Husky", "Cafe con blanco", "4 meses", "Hmebra", "Jugueton/exagerada");
+                        datosMas(
+                                mascotasPerros.raza = "Husky",
+                                mascotasPerros.color = "Blanco con cafe y negro",
+                                mascotasPerros.edad = "1 año",
+                                mascotasPerros.sexo = "Macho",
+                                mascotasPerros.caracter = "Jugueton y dramatico");
                         break;
                 }
             }
@@ -92,45 +111,48 @@ public class Mascotas extends AppCompatActivity {
         lstPeGa.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Mascota mascotasGatos = new Mascota();
                 switch(i){
                     case 0:
                         imgvMas.setImageResource(R.drawable.lstgbom);
-                        datosMas("Bombay", "Negro", "6 meses", "Hembra", "Amigable");
+                        datosMas(
+                                mascotasGatos.raza = "Bombay",
+                                mascotasGatos.color = "Negro",
+                                mascotasGatos.edad = "1 año",
+                                mascotasGatos.sexo = "Macho",
+                                mascotasGatos.caracter = "Jugueton");
                         break;
                     case 1:
                         imgvMas.setImageResource(R.drawable.lstgkin);
-                        datosMas("Kinkalow", "Blanco con gris", "8 meses", "Macho", "Jugueton");
+                        datosMas(
+                                mascotasGatos.raza = "Kinkalow",
+                                mascotasGatos.color = "Gris con blanco",
+                                mascotasGatos.edad = "8 meses",
+                                mascotasGatos.sexo = "Hembra",
+                                mascotasGatos.caracter = "Reservada y mimada");
                         break;
                     case 2:
                         imgvMas.setImageResource(R.drawable.lstglyk);
-                        datosMas("Lykoi", "Cafe/gris", "1 año", "Masculino", "Reservado");
+                        datosMas(
+                                mascotasGatos.raza = "Lykoi",
+                                mascotasGatos.color = "Gris",
+                                mascotasGatos.edad = "1 año",
+                                mascotasGatos.sexo = "Macho",
+                                mascotasGatos.caracter = "Jugueton");
                         break;
                 }
             }
         });
+
     }
     public void datosMas(String raza, String color, String edad, String sexo, String caracter){
-        txtmDat.setText(raza + "\n\n"+ color + "\n\n"+ edad + "\n\n"+ sexo + "\n\n"+ caracter);
+        txtmDat.setText("Raza: " + raza + "\n\n"+ "Color: " + color + "\n\n"+ "Edad: " + edad + "\n\n" + "Sexo: " + sexo + "\n\n" + "Caracter: " + caracter);
     }
-   public void radioButton(){
-        sexoMascota.sexo = ((String.valueOf(rdgbSex.getCheckedRadioButtonId())));
-        String sexo = sexoMascota.sexo;
-        txtmDat.setText(sexo);
-       rdgbSex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch(i){
-                    case R.id.rdbHem:
-                        String sexoF = rdbHem.toString().trim();
-                        break;
-                    case R.id.rdbMac:
-                        String sexoM = rdbMac.toString().trim();
-                        break;
-                }
-            }
-        });
-    }
-    static class sexoMascota{
-        static String sexo = "";
+    class Mascota{
+        String raza = "";
+        String color = "";
+        String edad = "";
+        String sexo = "";
+        String caracter = "";
     }
 }

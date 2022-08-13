@@ -15,4 +15,11 @@
         <item>Kinkalow</item>
         <item>Lykoi</item>
     </string-array>
+    <string name="Bulldog">
+        <item>Bulldog</item>
+        <item>Negro</item>
+        <item>2 años</item>
+        <item>Masculino</item>
+        <item>Jugueton</item>
+    </string>
 </resources>
