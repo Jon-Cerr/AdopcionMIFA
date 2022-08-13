@@ -2,11 +2,13 @@ package com.example.adopcionmifa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -14,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 
@@ -25,7 +28,8 @@ public class Mascotas extends AppCompatActivity {
     private TextView txtmDat;
     private RadioGroup rdgbSex;
     private RadioButton rdbHem, rdbMac;
-    private ImageButton imgbIrAdoptar;
+    private EditText txteFe;
+    Mascota mascotas = new Mascota();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +41,8 @@ public class Mascotas extends AppCompatActivity {
         rdgbSex= findViewById(R.id.rdgbSex);
         rdbHem= findViewById(R.id.rdbHem);
         rdbMac= findViewById(R.id.rdbMac);
+        txteFe= findViewById(R.id.txteFe);
         txtmDat.setKeyListener(null);
-        imgbIrAdoptar = findViewById(R.id.imgbIrAdoptar);
         regMas();
     }
     public void regMas(){
@@ -71,34 +75,33 @@ public class Mascotas extends AppCompatActivity {
         lstPeGa.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Mascota mascotasPerros = new Mascota();
                 switch(i){
                     case 0:
                         imgvMas.setImageResource(R.drawable.lstpbul);
                         datosMas(
-                                mascotasPerros.raza = "Bulldog",
-                                mascotasPerros.color = "Blanco",
-                                mascotasPerros.edad = "2 años",
-                                mascotasPerros.sexo = "Masculino",
-                                mascotasPerros.caracter = "Jugueton");
+                                mascotas.raza = "Bulldog",
+                                mascotas.color = "Blanco",
+                                mascotas.edad = "2 años",
+                                mascotas.sexo = "Masculino",
+                                mascotas.caracter = "Jugueton");
                         break;
                     case 1:
                         imgvMas.setImageResource(R.drawable.lstpbas);
                         datosMas(
-                                mascotasPerros.raza = "Basenji",
-                                mascotasPerros.color = "Negro con blanco",
-                                mascotasPerros.edad = "1 año",
-                                mascotasPerros.sexo = "Hembra",
-                                mascotasPerros.caracter = "Juguetona");
+                                mascotas.raza = "Basenji",
+                                mascotas.color = "Negro con blanco",
+                                mascotas.edad = "1 año",
+                                mascotas.sexo = "Hembra",
+                                mascotas.caracter = "Juguetona");
                         break;
                     case 2:
                         imgvMas.setImageResource(R.drawable.lstphus);
                         datosMas(
-                                mascotasPerros.raza = "Husky",
-                                mascotasPerros.color = "Blanco con cafe y negro",
-                                mascotasPerros.edad = "1 año",
-                                mascotasPerros.sexo = "Macho",
-                                mascotasPerros.caracter = "Jugueton y dramatico");
+                                mascotas.raza = "Husky",
+                                mascotas.color = "Blanco con cafe y negro",
+                                mascotas.edad = "1 año",
+                                mascotas.sexo = "Macho",
+                                mascotas.caracter = "Jugueton y dramatico");
                         break;
                 }
             }
@@ -111,34 +114,33 @@ public class Mascotas extends AppCompatActivity {
         lstPeGa.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Mascota mascotasGatos = new Mascota();
                 switch(i){
                     case 0:
                         imgvMas.setImageResource(R.drawable.lstgbom);
                         datosMas(
-                                mascotasGatos.raza = "Bombay",
-                                mascotasGatos.color = "Negro",
-                                mascotasGatos.edad = "1 año",
-                                mascotasGatos.sexo = "Macho",
-                                mascotasGatos.caracter = "Jugueton");
+                                mascotas.raza = "Bombay",
+                                mascotas.color = "Negro",
+                                mascotas.edad = "1 año",
+                                mascotas.sexo = "Macho",
+                                mascotas.caracter = "Jugueton");
                         break;
                     case 1:
                         imgvMas.setImageResource(R.drawable.lstgkin);
                         datosMas(
-                                mascotasGatos.raza = "Kinkalow",
-                                mascotasGatos.color = "Gris con blanco",
-                                mascotasGatos.edad = "8 meses",
-                                mascotasGatos.sexo = "Hembra",
-                                mascotasGatos.caracter = "Reservada y mimada");
+                                mascotas.raza = "Kinkalow",
+                                mascotas.color = "Gris con blanco",
+                                mascotas.edad = "8 meses",
+                                mascotas.sexo = "Hembra",
+                                mascotas.caracter = "Reservada y mimada");
                         break;
                     case 2:
                         imgvMas.setImageResource(R.drawable.lstglyk);
                         datosMas(
-                                mascotasGatos.raza = "Lykoi",
-                                mascotasGatos.color = "Gris",
-                                mascotasGatos.edad = "1 año",
-                                mascotasGatos.sexo = "Macho",
-                                mascotasGatos.caracter = "Jugueton");
+                                mascotas.raza = "Lykoi",
+                                mascotas.color = "Gris",
+                                mascotas.edad = "1 año",
+                                mascotas.sexo = "Macho",
+                                mascotas.caracter = "Jugueton");
                         break;
                 }
             }
@@ -154,5 +156,36 @@ public class Mascotas extends AppCompatActivity {
         String edad = "";
         String sexo = "";
         String caracter = "";
+    }
+    public void irAdoptar(View view){
+        AdoptarPaso();
+    }
+    public void AdoptarPaso(){
+        rdgbSex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                String sexo;
+                String fecha;
+                Intent envioDatos;
+                switch(i){
+                    case R.id.rdbHem:
+                        sexo = "Hembra";
+                        fecha = txteFe.getText().toString().trim();
+                        envioDatos = new Intent(Mascotas.this, Adoptante.class);
+                        envioDatos.putExtra("Sexo", sexo);
+                        envioDatos.putExtra("Sexo", fecha);
+                        startActivity(envioDatos);
+                        break;
+                    case R.id.rdbMac:
+                        sexo = "Macho";
+                        fecha = txteFe.getText().toString().trim();
+                        envioDatos = new Intent(Mascotas.this, Adoptante.class);
+                        envioDatos.putExtra("Sexo", sexo);
+                        envioDatos.putExtra("Sexo", fecha);
+                        startActivity(envioDatos);
+                        break;
+                }
+            }
+        });
     }
 }
