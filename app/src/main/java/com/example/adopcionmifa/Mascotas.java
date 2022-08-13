@@ -157,10 +157,10 @@ public class Mascotas extends AppCompatActivity {
         String sexo = "";
         String caracter = "";
     }
-    public void irAdoptar(View view){
+    /*public void irAdoptar(View view){
         AdoptarPaso();
-    }
-    public void AdoptarPaso(){
+    }*/
+    public void AdoptarPaso(View v){
         rdgbSex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -171,20 +171,20 @@ public class Mascotas extends AppCompatActivity {
                     case R.id.rdbHem:
                         sexo = "Hembra";
                         fecha = txteFe.getText().toString().trim();
-                        envioDatos = new Intent(Mascotas.this, Adoptante.class);
-                        envioDatos.putExtra("Sexo", sexo);
-                        envioDatos.putExtra("Sexo", fecha);
-                        startActivity(envioDatos);
+
                         break;
                     case R.id.rdbMac:
                         sexo = "Macho";
                         fecha = txteFe.getText().toString().trim();
-                        envioDatos = new Intent(Mascotas.this, Adoptante.class);
-                        envioDatos.putExtra("Sexo", sexo);
-                        envioDatos.putExtra("Sexo", fecha);
-                        startActivity(envioDatos);
+
                         break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + i);
                 }
+                envioDatos = new Intent(Mascotas.this, Adoptante.class);
+                envioDatos.putExtra("Sexo", sexo);
+                envioDatos.putExtra("Fecha", fecha);
+                startActivity(envioDatos);
             }
         });
     }
